@@ -18,10 +18,9 @@ main:
 	@ Function supports interworking.
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
-	mov	r3, #1073741824
 	stmfd	sp!, {r4, lr}
 	mov	r2, #0
-	add	r3, r3, #524288
+	mov	r3, #0
 	ldr	r0, .L3
 	bl	printf
 	ldmfd	sp!, {r4, lr}
@@ -31,6 +30,8 @@ main:
 .L3:
 	.word	.LC0
 	.size	main, .-main
+	.comm	x,8,8
+	.comm	y,8,8
 	.section	.rodata.str1.4,"aMS",%progbits,1
 	.align	2
 .LC0:
